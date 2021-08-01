@@ -1,8 +1,3 @@
-# You can find very simple example of the usage Selenium with PyTest in this file.
-#
-# More info about pytest-selenium:
-#    https://pytest-selenium.readthedocs.io/en/latest/user_guide.html
-#
 # How to run:
 #  1) Download geko driver for Chrome here:
 #     https://chromedriver.chromium.org/downloads
@@ -10,10 +5,6 @@
 #     pip install -r requirements.txt
 #  3) Run tests:
 #     python3 -m pytest -s tests/test_cryptoveche.py
-#   Remote:
-#  export SELENIUM_HOST=<moon host>
-#  export SELENIUM_PORT=4444
-#  pytest -v --driver Remote --capability browserName chrome tests/*
 #
 import time
 from pages.cryptoveche import MainPage
@@ -30,7 +21,7 @@ def test_login_as_observer_and_change_password(browser):
     page.observer_btn.click()  # Choose observer button
     page.username_field = email  # Input email in the form field
     page.password_field = password  # Input password in the form field
-    page.submit_btn.click()  # Click bubmit form button
+    page.submit_btn.click()  # Click submit form button
     time.sleep(2)  # Wait until form will be submit
     # Open profile settings page
     page.get(f'https://admin.evote74.dltc.spbu.ru/users/{email}')
